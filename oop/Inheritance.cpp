@@ -19,7 +19,7 @@ public:
     int p = 0;
     int q = 1;
     void function(){
-        cout << "class B: " << endl;
+        cout << "class B inherits A's properties: " << endl;
     }
 
 };
