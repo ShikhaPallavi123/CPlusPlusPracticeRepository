@@ -5,23 +5,23 @@
 #include<vector>
 using namespace std;
 
-void print(vector<int> arr, int n){
+void print(vector<int>& arr, int n){
     cout << "sorted elements of the array are: ";
     for(int i = 0; i < n; i++){
         cout << arr[i] << " ";
     }
 }
 
-void merge(vector<int> arr, int mid, int si, int ei){
+void merge(vector<int>& arr, int mid, int si, int ei){
     vector<int> temp;
     int i = si;
     int j = mid+1;
 
    while(i <= mid && j <= ei) {
        if (arr[i] <= arr[j]) {
-           temp.push_back(arr[i]);
+           temp.push_back(arr[i++]);
        } else {
-           temp.push_back(arr[j]);
+           temp.push_back(arr[j++]);
        }
    }
 
@@ -38,11 +38,11 @@ void merge(vector<int> arr, int mid, int si, int ei){
 
 }
 
-void mergeSort(vector<int> arr, int si, int ei){
+void mergeSort(vector<int>& arr, int si, int ei){
     if(si >= ei){
        return;
     }
-    int mid = si + ei/2;
+    int mid = (si + ei)/2;
     mergeSort(arr,si,mid); //left half
     mergeSort(arr,mid+1, ei); // right half
     merge(arr,mid, si,ei); // combine
